@@ -1,19 +1,16 @@
 
-"use strict";
-
-// Mobile navigation menu
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
 
+// Mobile navigation
 if (menuToggle && nav) {
   menuToggle.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("open");
-
     menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.textContent = isOpen ? "✕" : "☰";
+    menuToggle.textContent = isOpen ? "×" : "☰";
   });
 
-  nav.querySelectorAll("a").forEach(link => {
+  nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       nav.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
@@ -22,106 +19,106 @@ if (menuToggle && nav) {
   });
 }
 
-// Portfolio category filters
-const filterButtons = document.querySelectorAll(".filter");
-const photoCards = document.querySelectorAll(".photo-card");
+// Footer year
+const year = document.getElementById("year");
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
 
-filterButtons.forEach(button => {
+// Gallery filters
+const filterButtons = document.querySelectorAll(".filter-btn");
+const photoCards = Array.from(document.querySelectorAll(".photo-card"));
+
+filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    filterButtons.forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
+    const filter = button.dataset.filter;
 
-    const selectedCategory = button.dataset.filter;
+    filterButtons.forEach((item) => {
+      item.classList.toggle("active", item === button);
+    });
 
-    photoCards.forEach(card => {
+    photoCards.forEach((card) => {
       const matches =
-        selectedCategory === "all" ||
-        card.dataset.category === selectedCategory;
+        filter === "all" || card.dataset.category === filter;
 
-      card.classList.toggle("hidden", !matches);
+      card.hidden = !matches;
     });
   });
 });
 
-// Full-screen photo viewer
+// Photo lightbox
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
-const lightboxClose = document.getElementById("lightboxClose");
+const closeButton = document.getElementById("lightboxClose");
+const prevButton = document.getElementById("lightboxPrev");
+const nextButton = document.getElementById("lightboxNext");
 
-function openLightbox(card) {
-  if (!lightbox || !lightboxImage) return;
+let currentIndex = 0;
 
-  const imageUrl = card.dataset.full;
+function visiblePhotos() {
+  return photoCards.filter((card) => !card.hidden);
+}
 
-  if (!imageUrl) return;
+function showPhoto(index) {
+  const photos = visiblePhotos();
 
-  lightboxImage.src = imageUrl;
-  lightboxImage.alt =
-    card.querySelector("img")?.alt || "Photography";
+  if (!photos.length) return;
+
+  currentIndex = (index + photos.length) % photos.length;
+
+  const card = photos[currentIndex];
+  const image = card.querySelector("img");
+
+  lightboxImage.src = card.dataset.full || image.src;
+  lightboxImage.alt = image.alt;
 
   lightbox.classList.add("open");
   lightbox.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
-
-  if (lightboxClose) lightboxClose.focus();
 }
 
 function closeLightbox() {
-  if (!lightbox || !lightboxImage) return;
-
   lightbox.classList.remove("open");
   lightbox.setAttribute("aria-hidden", "true");
   lightboxImage.src = "";
   document.body.style.overflow = "";
 }
 
-photoCards.forEach(card => {
-  card.addEventListener("click", () => openLightbox(card));
+photoCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const photos = visiblePhotos();
+    showPhoto(photos.indexOf(card));
+  });
 });
 
-if (lightboxClose) {
-  lightboxClose.addEventListener("click", closeLightbox);
+if (closeButton) {
+  closeButton.addEventListener("click", closeLightbox);
+}
+
+if (prevButton) {
+  prevButton.addEventListener("click", () => {
+    showPhoto(currentIndex - 1);
+  });
+}
+
+if (nextButton) {
+  nextButton.addEventListener("click", () => {
+    showPhoto(currentIndex + 1);
+  });
 }
 
 if (lightbox) {
-  lightbox.addEventListener("click", event => {
+  lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) {
       closeLightbox();
     }
   });
 }
 
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") {
-    closeLightbox();
-  }
+document.addEventListener("keydown", (event) => {
+  if (!lightbox || !lightbox.classList.contains("open")) return;
+
+  if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowLeft") showPhoto(currentIndex - 1);
+  if (event.key === "ArrowRight") showPhoto(currentIndex + 1);
 });
-
-// Reveal sections when scrolling
-const revealElements = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  revealElements.forEach(element => observer.observe(element));
-} else {
-  revealElements.forEach(element => {
-    element.classList.add("visible");
-  });
-}
-
-// Automatically update the footer year
-const yearElement = document.getElementById("year");
-
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
