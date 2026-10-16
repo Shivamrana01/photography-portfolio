@@ -5,357 +5,207 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101010">
-  <meta name="description" content="Explore Shivam Rana's photography portfolio, featuring portraits, nature, travel and street photography.">
+  <meta name="description" content="Shivam Rana Photography Portfolio">
   <title>Shivam Rana | Photography Portfolio</title>
-
-  <!-- Connect the CSS and JavaScript files -->
   <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
 </head>
-
 <body>
-  <!-- HEADER -->
+
   <header class="header">
-    <a class="brand" href="#home" aria-label="Shivam Rana Photography home">
-      SR<span>✦</span>
-      <small>SHIVAM RANA</small>
+    <a class="brand" href="#home">
+      <span class="brand-mark">SR</span>
+      <span>SHIVAM <b>RANA</b></span>
     </a>
 
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      type="button"
-      aria-label="Toggle navigation"
-      aria-controls="nav"
-      aria-expanded="false">
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">
       ☰
     </button>
 
-    <nav class="nav" id="nav" aria-label="Main navigation">
+    <nav class="nav" id="nav">
       <a href="#home">Home</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#gallery">Gallery</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#contact">Let's Talk ↗</a>
+      <a href="#contact" class="nav-contact">Contact</a>
     </nav>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
     <section class="hero" id="home">
-      <div class="hero-content reveal">
-        <p class="eyebrow">PHOTOGRAPHER · VISUAL STORYTELLER</p>
-
-        <h1>
-          Life happens.<br>
-          I capture the <em>feeling.</em>
-        </h1>
-
+      <div class="hero-content">
+        <p class="eyebrow">PHOTOGRAPHY • CINEMATIC STORIES</p>
+        <h1>Every Picture<br>Has a <span>Story.</span></h1>
         <p class="hero-text">
-          Turning fleeting moments into timeless memories.
-          Welcome to my world, seen through my lens.
+          Capturing real emotions, beautiful places and unforgettable moments
+          through my lens.
         </p>
-
-        <div class="hero-actions">
-          <a class="button button-gold" href="#portfolio">
-            Explore Portfolio ↗
-          </a>
-          <a class="text-link" href="#about">Discover My Story</a>
+        <div class="hero-buttons">
+          <a href="#gallery" class="btn btn-primary">Explore My Work ↗</a>
+          <a href="#contact" class="btn btn-outline">Let's Connect</a>
         </div>
-
-        <p class="hero-note">LIGHT · EMOTION · STORY</p>
+        <div class="hero-note">
+          <span class="status-dot"></span> PHOTOGRAPHY • CREATIVITY • PASSION
+        </div>
       </div>
-
-      <a class="scroll-link" href="#about">↓ SCROLL TO EXPLORE</a>
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85"
+          alt="Beautiful mountain landscape">
+        <div class="image-caption">
+          <span>01 / THE WORLD THROUGH MY LENS</span>
+          <span>EST. WITH PASSION</span>
+        </div>
+      </div>
+      <span class="hero-decoration">SR.</span>
     </section>
 
-    <!-- INTRODUCTION -->
-    <section class="intro section reveal">
-      <div>
-        <p class="eyebrow">BEHIND EVERY FRAME</p>
-        <h2>
-          Some moments deserve<br>
-          to <em>last forever.</em>
-        </h2>
-      </div>
-
-      <p class="intro-copy">
-        I believe the best photographs don't just show a moment —
-        they bring you back to how it felt.
-      </p>
-    </section>
-
-    <!-- PORTFOLIO GALLERY -->
-    <section class="section portfolio" id="portfolio">
-      <div class="section-heading reveal">
+    <section class="section gallery-section" id="gallery">
+      <div class="section-heading">
         <div>
-          <p class="eyebrow">A COLLECTION OF MOMENTS</p>
-          <h2>Selected <em>works.</em></h2>
+          <p class="eyebrow">SELECTED PHOTOGRAPHS</p>
+          <h2>My <span>Portfolio</span></h2>
         </div>
-
-        <p>
-          Every photograph has a story.<br>
-          Here are a few of mine.
+        <p class="section-description">
+          A collection of moments, places and stories worth remembering.
         </p>
       </div>
 
-      <!-- Gallery filters -->
-      <div class="filters reveal" aria-label="Filter photographs">
-        <button class="filter active" type="button" data-filter="all">
-          All Work
-        </button>
-        <button class="filter" type="button" data-filter="nature">
-          Nature
-        </button>
-        <button class="filter" type="button" data-filter="portrait">
-          Portraits
-        </button>
-        <button class="filter" type="button" data-filter="travel">
-          Travel
-        </button>
-        <button class="filter" type="button" data-filter="street">
-          Street
-        </button>
+      <div class="filters" aria-label="Filter gallery">
+        <button class="filter-btn active" data-filter="all">All Work</button>
+        <button class="filter-btn" data-filter="nature">Nature</button>
+        <button class="filter-btn" data-filter="travel">Travel</button>
+        <button class="filter-btn" data-filter="portraits">Portraits</button>
       </div>
 
-      <!-- Photo cards: sample images can be replaced with your own -->
-      <div class="gallery">
-
-        <button
-          class="photo-card reveal"
-          type="button"
-          data-category="nature"
-          data-full="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1800&q=90"
-          aria-label="Open Golden Hour photograph">
-
-          <img
-            src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85"
-            alt="Golden sunlight across a natural landscape"
-            loading="lazy">
-
-          <span class="photo-info">
-            <small>NATURE</small>
-            <strong>Golden Hour</strong>
-          </span>
+      <div class="gallery-grid">
+        <button class="photo-card tall" data-category="nature"
+          data-full="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=90"
+          aria-label="View mountain landscape">
+          <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=85"
+            alt="Mountain lake and green landscape" loading="lazy">
+          <span class="photo-overlay"><span>Nature</span><b>Into the Wild ↗</b></span>
         </button>
 
-        <button
-          class="photo-card reveal"
-          type="button"
-          data-category="portrait"
-          data-full="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1800&q=90"
-          aria-label="Open Human Stories portrait">
-
-          <img
-            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85"
-            alt="Portrait of a person"
-            loading="lazy">
-
-          <span class="photo-info">
-            <small>PORTRAIT</small>
-            <strong>Human Stories</strong>
-          </span>
+        <button class="photo-card" data-category="travel"
+          data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=90"
+          aria-label="View travel landscape">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=85"
+            alt="Scenic travel landscape" loading="lazy">
+          <span class="photo-overlay"><span>Travel</span><b>Open Roads ↗</b></span>
         </button>
 
-        <button
-          class="photo-card reveal"
-          type="button"
-          data-category="travel"
-          data-full="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=90"
-          aria-label="Open Into the Wild landscape">
-
-          <img
-            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85"
-            alt="Mountains reaching into the sky"
-            loading="lazy">
-
-          <span class="photo-info">
-            <small>TRAVEL</small>
-            <strong>Into the Wild</strong>
-          </span>
+        <button class="photo-card" data-category="portraits"
+          data-full="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=90"
+          aria-label="View portrait photograph">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=85"
+            alt="Portrait of a man" loading="lazy">
+          <span class="photo-overlay"><span>Portraits</span><b>Human Stories ↗</b></span>
         </button>
 
-        <button
-          class="photo-card reveal"
-          type="button"
-          data-category="street"
-          data-full="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=90"
-          aria-label="Open City Rhythms photograph">
-
-          <img
-            src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=85"
-            alt="City atmosphere at night"
-            loading="lazy">
-
-          <span class="photo-info">
-            <small>STREET</small>
-            <strong>City Rhythms</strong>
-          </span>
+        <button class="photo-card" data-category="nature"
+          data-full="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=90"
+          aria-label="View forest photograph">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=85"
+            alt="Sunlight through a green forest" loading="lazy">
+          <span class="photo-overlay"><span>Nature</span><b>Forest Light ↗</b></span>
         </button>
 
-        <button
-          class="photo-card reveal"
-          type="button"
-          data-category="nature"
-          data-full="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=90"
-          aria-label="Open Into the Green photograph">
-
-          <img
-            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=85"
-            alt="Sunlight filtering through a green forest"
-            loading="lazy">
-
-          <span class="photo-info">
-            <small>NATURE</small>
-            <strong>Into the Green</strong>
-          </span>
+        <button class="photo-card tall" data-category="travel"
+          data-full="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=90"
+          aria-label="View mountain photograph">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=85"
+            alt="Dramatic mountain peaks" loading="lazy">
+          <span class="photo-overlay"><span>Travel</span><b>Beyond the Peaks ↗</b></span>
         </button>
 
-        <button
-          class="photo-card reveal"
-          type="button"
-          data-category="travel"
-          data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=90"
-          aria-label="Open Somewhere New photograph">
-
-          <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85"
-            alt="A scenic landscape on a journey"
-            loading="lazy">
-
-          <span class="photo-info">
-            <small>TRAVEL</small>
-            <strong>Somewhere New</strong>
-          </span>
+        <button class="photo-card" data-category="nature"
+          data-full="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1600&q=90"
+          aria-label="View sunrise photograph">
+          <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=85"
+            alt="Golden sunrise over a field" loading="lazy">
+          <span class="photo-overlay"><span>Nature</span><b>Golden Hour ↗</b></span>
         </button>
-
       </div>
-
-      <p class="gallery-note">
-        These are sample photographs. Add your own photography to make this portfolio yours.
-      </p>
+      <p class="gallery-note">Demo photographs are shown above. Replace them with your own photos anytime.</p>
     </section>
 
-    <!-- ABOUT -->
-    <section class="about section reveal" id="about">
-      <div class="about-mark" aria-label="Shivam Rana initials">
-        SR<span>✦</span>
+    <section class="about-section section" id="about">
+      <div class="about-visual">
+        <img
+          src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1000&q=85"
+          alt="Camera used for photography" loading="lazy">
+        <div class="about-stamp">FRAME<br>YOUR<br>STORY.</div>
       </div>
-
-      <div>
-        <p class="eyebrow">THE PERSON BEHIND THE CAMERA</p>
-
-        <h2>
-          Hi, I'm Shivam.<br>
-          I see stories in <em>light.</em>
-        </h2>
-
+      <div class="about-content">
+        <p class="eyebrow">A LITTLE ABOUT ME</p>
+        <h2>Behind Every Frame,<br>There Is a <span>Feeling.</span></h2>
         <p>
-          Photography is more than taking pictures.
-          It's about noticing the little things, feeling the moment,
-          and preserving it in a frame.
+          Hi, I'm Shivam Rana. I'm passionate about photography, creative
+          storytelling and finding beauty in everyday moments.
         </p>
-
         <p>
-          This is my creative space — a growing collection of
-          photographs, experiments, and stories seen through my lens.
+          For me, photography is more than taking a picture. It's about
+          noticing the details, understanding the light and keeping memories alive.
         </p>
-
-        <a class="text-link" href="#contact">
-          Let's create something together ↗
-        </a>
+        <a class="text-link" href="#contact">Let's create something memorable ↗</a>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section services" id="services">
-      <div class="section-heading reveal">
+    <section class="section services-section" id="services">
+      <div class="section-heading">
         <div>
           <p class="eyebrow">WHAT I LOVE TO CAPTURE</p>
-          <h2>My creative <em>focus.</em></h2>
+          <h2>My Creative <span>Focus</span></h2>
         </div>
       </div>
-
-      <div class="service-grid">
-        <article class="service-card reveal">
-          <span>01</span>
-          <h3>Portraits</h3>
-          <p>Personal portraits that capture character and emotion.</p>
+      <div class="services-grid">
+        <article class="service-card">
+          <span class="service-number">01</span>
+          <div class="service-icon">◉</div>
+          <h3>Portrait Photography</h3>
+          <p>Expressions, personalities and the little details that make each person unique.</p>
         </article>
-
-        <article class="service-card reveal">
-          <span>02</span>
-          <h3>Nature</h3>
-          <p>Natural beauty, changing light, and quiet details.</p>
+        <article class="service-card">
+          <span class="service-number">02</span>
+          <div class="service-icon">⌁</div>
+          <h3>Nature & Travel</h3>
+          <p>Landscapes, beautiful destinations and the wonder of the natural world.</p>
         </article>
-
-        <article class="service-card reveal">
-          <span>03</span>
-          <h3>Travel & Street</h3>
-          <p>Places, people, and everyday moments worth remembering.</p>
+        <article class="service-card">
+          <span class="service-number">03</span>
+          <div class="service-icon">✳</div>
+          <h3>Events & Moments</h3>
+          <p>Special occasions and candid moments worth keeping for a lifetime.</p>
         </article>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="contact section reveal" id="contact">
-      <p class="eyebrow">HAVE A STORY IN MIND?</p>
-
-      <h2>
-        Let's make something<br>
-        <em>meaningful.</em>
-      </h2>
-
-      <p>
-        Have a photography idea or want to collaborate?
-        Get in touch.
-      </p>
-
-      <!-- Replace the sample email with your own email address -->
-      <a
-        class="button button-gold"
+    <section class="contact-section section" id="contact">
+      <p class="eyebrow">HAVE A PROJECT IN MIND?</p>
+      <h2>Let's Make Something<br><span>Beautiful Together.</span></h2>
+      <p>Have a photography idea or want to work together? Get in touch.</p>
+      <a class="btn btn-primary"
         href="mailto:your-email@example.com?subject=Photography%20Enquiry">
-        Start a Conversation ↗
+        Email Me ↗
       </a>
-
-      <p class="contact-note">
-        Contact email needs to be updated with your own email address.
-      </p>
+      <p class="email-note">Replace the sample email address with your own.</p>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <a class="brand" href="#home">
-      SR<span>✦</span>
-      <small>SHIVAM RANA</small>
-    </a>
-
-    <p>Capturing moments. Telling stories.</p>
-
-    <p>
-      © <span id="year"></span> Shivam Rana Photography
-    </p>
+    <a class="brand" href="#home"><span class="brand-mark">SR</span><span>SHIVAM <b>RANA</b></span></a>
+    <p>© <span id="year"></span> Shivam Rana Photography. All rights reserved.</p>
+    <a href="#home" class="back-top">Back to top ↑</a>
   </footer>
 
-  <!-- FULL-SCREEN PHOTO VIEWER -->
-  <div
-    class="lightbox"
-    id="lightbox"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Photograph viewer"
-    aria-hidden="true">
-
-    <button
-      class="lightbox-close"
-      id="lightboxClose"
-      type="button"
-      aria-label="Close photograph">
-      ×
-    </button>
-
-    <img id="lightboxImage" src="" alt="Enlarged photograph">
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+    <img id="lightboxImage" src="" alt="Expanded portfolio photograph">
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
   </div>
+
 </body>
 </html>
